@@ -125,15 +125,17 @@ Request: {req.message}"""
     sources = []
     data_source = "ai-generated"
     try:
-        from src.tools.web import web_search
-        results = web_search(search_query, num_results=10)
-        sources = [
-            {"title": r.get("title", ""), "url": r.get("href", r.get("url", "")), "snippet": r.get("body", r.get("snippet", ""))}
-            for r in (results if isinstance(results, list) else [])
-        ]
-        data_source = "live"
-    except Exception:
-        pass
+                    from src.tools.web import web_search
+                    results = web_search(search_query, num_results=10)
+                    sources = [
+                                        {"title": r.get("title", ""), "url": r.get("href", "")}
+                                        for r in (results if isinstance(results, list) else [])
+                    ]
+                    data_source = "live"
+    except Exception as e:
+                    print(f"Web search failed: {str(e)}")
+                    sources = []
+                    data_source = "ai-generated"
 
     # Step 3: synthesise
     synthesis_prompt = f"""You are a research analyst. Synthesise findings for this request: "{req.message}"
