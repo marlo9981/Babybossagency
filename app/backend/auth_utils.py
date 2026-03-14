@@ -1,8 +1,11 @@
 """
 auth_utils.py — JWT creation/verification and password hashing.
 """
+from __future__ import annotations
+
 import os
 from datetime import datetime, timedelta, timezone
+from typing import Optional
 
 from fastapi import Depends, HTTPException, status
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
@@ -34,7 +37,7 @@ def create_access_token(user_id: int) -> str:
 
 
 def get_current_user(
-    credentials: HTTPAuthorizationCredentials | None = Depends(_bearer),
+    credentials: Optional[HTTPAuthorizationCredentials] = Depends(_bearer),
     db: Session = Depends(get_db),
 ) -> User:
     if not credentials:

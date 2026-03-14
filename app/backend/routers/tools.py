@@ -2,6 +2,8 @@
 routers/tools.py — /tools/* endpoints
 All tool imports are lazy (inside the handler) so they don't run at import time.
 """
+from __future__ import annotations
+
 from fastapi import APIRouter, Depends, HTTPException
 
 import paths  # noqa: F401 — side-effect: patches sys.path

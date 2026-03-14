@@ -1,0 +1,5 @@
+You are a helpful AI assistant. Summarize the following in a friendly, concise way:
+
+{content}
+
+Keep it brief and actionable.

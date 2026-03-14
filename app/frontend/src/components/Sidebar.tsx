@@ -117,7 +117,7 @@ export default function Sidebar() {
       <div className="px-4 py-4 border-t border-border flex items-center justify-between">
         <div className="text-xs text-slate-400 truncate">
           {user?.email}
-          {user?.plan !== 'free' && (
+          {user?.plan && user.plan !== 'free' && (
             <span className="ml-1 text-accent">[{user.plan}]</span>
           )}
         </div>

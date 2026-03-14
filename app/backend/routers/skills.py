@@ -2,6 +2,8 @@
 routers/skills.py — /skills/analytics and /skills/research
 Both are standalone — no client context, credit-gated.
 """
+from __future__ import annotations
+
 import csv
 import io
 import json

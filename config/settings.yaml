@@ -1,0 +1,36 @@
+# AI Settings
+ai:
+  primary_model: "openai"
+  fallback_model: "ollama"
+  ollama_url: "http://localhost:11434"
+  ollama_model: "llama3.2"
+
+# Storage
+storage:
+  database: "~/.ai-agent-team/data.db"
+  reports_dir: "data/reports"
+  backups_dir: "data/backups"
+  retention_days: 90
+
+# Interfaces
+interfaces:
+  cli:
+    enabled: true
+  whatsapp:
+    enabled: true
+  web:
+    enabled: true
+    port: 8501
+
+# Scheduling
+scheduling:
+  daily_digest_time: "08:00"
+  weekly_report_day: "monday"
+  weekly_report_time: "09:00"
+  data_sync_time: "00:00"
+
+# Safety
+safety:
+  confirm_dangerous: true
+  sandbox_mode: false
+  max_execution_time: 300

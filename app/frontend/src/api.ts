@@ -1,4 +1,4 @@
-const BASE = import.meta.env.VITE_API_URL || ''
+const BASE = import.meta.env.VITE_API_URL || '/api'
 
 function token() {
   return localStorage.getItem('token') || ''
