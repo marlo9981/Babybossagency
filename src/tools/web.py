@@ -14,8 +14,9 @@ def web_search(query: str, num_results: int = 5) -> list:
             return [{"title": r["title"], "url": r["href"], "snippet": r["body"]}
                     for r in results]
     except Exception as e:
-        print(f"Search error: {e}")
-        return []
+            print(f"Web search error for query '{query}': {str(e)}")
+                    import traceback
+                    traceback.print_exc()return []
 
 def fetch_url(url: str) -> str:
     """Fetch and extract text from URL."""
